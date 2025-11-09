@@ -47,7 +47,7 @@ const RegisterPage = () => {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:3000/api/users/", {
+      const response = await fetch("/api/users/", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {

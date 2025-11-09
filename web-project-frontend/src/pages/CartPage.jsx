@@ -16,7 +16,7 @@ const CartPage = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          `http://localhost:3000/api/get-cart-products`,
+          `/api/get-cart-products`,
           {
             method: "POST",
             body: JSON.stringify(cart),

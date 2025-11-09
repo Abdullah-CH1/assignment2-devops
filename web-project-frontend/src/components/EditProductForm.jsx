@@ -32,7 +32,7 @@ const EditProductForm = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/categories");
+        const response = await fetch("/api/categories");
         if (!response.ok) {
           const data = await response.json();
           throw new Error(`${data.message}`);
@@ -49,7 +49,7 @@ const EditProductForm = () => {
     const fetchProductData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/products/${id}`
+          `/api/products/${id}`
         );
         if (!response.ok) {
           const data = await response.json();
@@ -70,7 +70,7 @@ const EditProductForm = () => {
         console.log(data);
         setImagePreviews((prev) => {
           return data.images.map(
-            (imagePath) => `http://localhost:3000${imagePath}`
+            (imagePath) => `${imagePath}`
           );
         });
       } catch (error) {
@@ -194,7 +194,7 @@ const EditProductForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/products/" + id, {
+      const response = await fetch("/api/products/" + id, {
         method: "PUT",
         body: formPayload,
         headers: {
@@ -333,7 +333,6 @@ const EditProductForm = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    const imgPath = url.split("localhost:3000")[1];
                     const imageIndex = formData.images.indexOf(imgPath);
                     if (imageIndex !== -1) {
                       const images = formData.images;

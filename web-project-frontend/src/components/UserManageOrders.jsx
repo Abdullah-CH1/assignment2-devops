@@ -11,7 +11,7 @@ const UserManageOrders = () => {
   useEffect(() => {
     const fetchUserOrders = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/users/orders`, {
+        const response = await fetch(`/api/users/orders`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${auth.token}`,

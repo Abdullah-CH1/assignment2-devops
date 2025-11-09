@@ -15,7 +15,7 @@ const AdminPage = () => {
     const fetchDashboardData = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:3000/api/dashboard", {
+        const response = await fetch("/api/dashboard", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${auth.token}`,

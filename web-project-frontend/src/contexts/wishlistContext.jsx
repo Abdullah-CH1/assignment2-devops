@@ -11,7 +11,7 @@ export const WishlistProvider = ({ children }) => {
     const fetchWishlist = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/users/wishlist`,
+          `/api/users/wishlist`,
           {
             method: "GET",
             headers: {
@@ -37,7 +37,7 @@ export const WishlistProvider = ({ children }) => {
       setWishlist(wishlist);
       try {
         const response = await fetch(
-          `http://localhost:3000/api/users/wishlist`,
+          `/api/users/wishlist`,
           {
             method: "POST",
             body: JSON.stringify({ wishlist }),

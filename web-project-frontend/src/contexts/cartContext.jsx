@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
       let cart = [];
       if (auth.user) {
         try {
-          const response = await fetch(`http://localhost:3000/api/users/cart`, {
+          const response = await fetch(`/api/users/cart`, {
             method: "GET",
             headers: {
               Authorization: `Bearer ${auth.token}`,
@@ -40,7 +40,7 @@ export const CartProvider = ({ children }) => {
     setCart(cart);
     if (auth.user) {
       try {
-        const response = await fetch(`http://localhost:3000/api/users/cart`, {
+        const response = await fetch(`/api/users/cart`, {
           method: "POST",
           body: JSON.stringify({ cart }),
           headers: {

@@ -13,7 +13,7 @@ export default function ProductPagePhotoSection({ product }) {
       <div className="border border-neutral-200 rounded-lg p-1 w-full flex justify-center items-center">
         <img
           className="h-full block"
-          src={`http://localhost:3000${viewingPhoto}`}
+          src={`${viewingPhoto}`}
           alt=""
         />
       </div>
@@ -28,7 +28,7 @@ export default function ProductPagePhotoSection({ product }) {
           >
             <img
               className={"w-full block max-h-full cursor-pointer hoverable"}
-              src={`http://localhost:3000${photoUrl}`}
+              src={`${photoUrl}`}
               key={photoUrl}
             />
           </div>

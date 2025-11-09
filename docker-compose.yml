@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  # 1. The Backend Service
+  backend:
+    build: ./web-project-backend
+    container_name: web-backend
+    environment:
+      # We no longer use the .env file. We set variables here.
+      NODE_ENV: production
+      PORT: 8080
+      # THIS IS THE KEY CHANGE:
+      # It now points to the 'mongo' service defined below.
+      MONGO_URI: mongodb://mongo:27017/my-web-app-db 
+      JWT_SECRET: ${JWT_SECRET} # You can set this in a .env file in this root
+    ports:
+      # We don't need to expose 8080 to the public,
+      # only to the Nginx container. But for debugging, we can.
+      - "8080:8080"
+    depends_on:
+      - mongo # Tells Docker to start mongo before starting the backend
+
+  # 2. The Frontend Service (Nginx)
+  frontend:
+    build: ./web-project-frontend
+    container_name: web-frontend
+    ports:
+      # Expose port 80 (HTTP) to the world
+      - "80:80"
+    depends_on:
+      - backend # Waits for the backend to be available
+
+  # 3. The Database Service (as required by assignment)
+  mongo:
+    image: mongo:latest # Use the official MongoDB image
+    container_name: web-database
+    ports:
+      # Optional: Expose this if you want to connect with MongoDB Compass
+      - "27017:27017"
+    volumes:
+      # THIS FULFILLS THE ASSIGNMENT REQUIREMENT
+      # It links the 'mongo-data' volume to the container's data directory
+      - mongo-data:/data/db
+
+# This top-level key defines the persistent volume
+volumes:
+  mongo-data:
+    # driver: local (this is the default)

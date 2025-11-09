@@ -28,7 +28,7 @@ const AdminManageOrder = () => {
   useEffect(() => {
     const fetchOrderData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/orders/${id}`);
+        const response = await fetch(`/api/orders/${id}`);
         if (!response.ok) {
           const data = await response.json();
           throw new Error(`${data.message}`);
@@ -49,7 +49,7 @@ const AdminManageOrder = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/orders/" + order._id,
+        "/api/orders/" + order._id,
         {
           method: "PUT",
           body: JSON.stringify({ ...order, completed: formData.completed }),

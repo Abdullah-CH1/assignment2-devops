@@ -29,7 +29,7 @@ const CheckoutPage = () => {
     const fetchCartProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/get-cart-products`,
+          `/api/get-cart-products`,
           {
             method: "POST",
             body: JSON.stringify(cart),
@@ -89,7 +89,7 @@ const CheckoutPage = () => {
     }));
 
     try {
-      const response = await fetch("http://localhost:3000/api/orders", {
+      const response = await fetch("/api/orders", {
         method: "POST",
         body: JSON.stringify({ ...formData, line_items }),
         headers: {

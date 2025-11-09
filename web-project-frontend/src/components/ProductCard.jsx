@@ -20,7 +20,7 @@ const ProductCard = ({ product, isCartProduct }) => {
         <div className="w-[220px] mx-auto">
           <img
             className="w-full aspect-square object-contain block rounded-lg hover:scale-110 transition duration-300 cursor-pointer"
-            src={`http://localhost:3000/${product.images[0]}`}
+            src={`/${product.images[0]}`}
             alt={product.name}
           />
         </div>

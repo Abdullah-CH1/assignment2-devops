@@ -13,7 +13,7 @@ export default function CartBox({ cartVisible, setCartVisible }) {
     const fetchCartProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/get-cart-products`,
+          `/api/get-cart-products`,
           {
             method: "POST",
             body: JSON.stringify(cart),
@@ -62,7 +62,7 @@ export default function CartBox({ cartVisible, setCartVisible }) {
                   <div>
                     <img
                       className="h-16"
-                      src={`http://localhost:3000${product.images[0]}`}
+                      src={`${product.images[0]}`}
                     />
                     <h3>{product.name}</h3>
                   </div>

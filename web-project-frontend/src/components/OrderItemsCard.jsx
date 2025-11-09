@@ -8,7 +8,7 @@ const OrderItemsCard = ({ productIds }) => {
     const fetchOrderProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/get-cart-products`,
+          `/api/get-cart-products`,
           {
             method: "POST",
             body: JSON.stringify(productIds),
@@ -48,7 +48,7 @@ const OrderItemsCard = ({ productIds }) => {
               >
                 <img
                   className="inline-block h-9  border-zinc-200"
-                  src={`http://localhost:3000${product.images[0]}`}
+                  src={`${product.images[0]}`}
                   alt=""
                 />
                 <span className="product-title inline-block transition duration-200 relative overflow-hidden">

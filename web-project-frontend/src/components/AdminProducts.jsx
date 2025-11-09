@@ -18,7 +18,7 @@ const AdminProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/api/products");
+      const response = await fetch("/api/products");
       const data = await response.json();
       setProducts(data);
       setLoading(false);
@@ -29,7 +29,7 @@ const AdminProducts = () => {
   const handleProductDelete = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/products/" + productToDeleteId,
+        "/api/products/" + productToDeleteId,
         {
           method: "DELETE",
           headers: {
@@ -91,7 +91,7 @@ const AdminProducts = () => {
                           <div className="flex gap-2 items-center">
                             <img
                               className="inline-block h-10"
-                              src={`http://localhost:3000${product.images[0]}`}
+                              src={`${product.images[0]}`}
                               alt=""
                             />
                             <p>{product.name}</p>

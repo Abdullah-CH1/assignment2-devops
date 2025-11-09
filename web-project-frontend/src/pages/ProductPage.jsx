@@ -19,7 +19,7 @@ export default function ProductPage() {
     const fetchProductData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/products/${id}`
+          `/api/products/${id}`
         );
         if (!response.ok) {
           const data = await response.json();

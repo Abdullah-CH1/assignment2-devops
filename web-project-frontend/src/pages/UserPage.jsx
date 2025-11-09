@@ -11,7 +11,7 @@ const UserPage = () => {
     const fetchWishlistProducts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3000/api/get-cart-products`,
+          `/api/get-cart-products`,
           {
             method: "POST",
             body: JSON.stringify(wishlist),

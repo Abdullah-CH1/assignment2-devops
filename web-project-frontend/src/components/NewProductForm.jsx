@@ -30,7 +30,7 @@ const NewProductForm = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/categories");
+        const response = await fetch("/api/categories");
         if (!response.ok) {
           const data = await response.json();
           throw new Error(`${data.message}`);
@@ -126,7 +126,7 @@ const NewProductForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/products", {
+      const response = await fetch("/api/products", {
         method: "POST",
         body: formPayload,
         headers: {
@@ -257,7 +257,6 @@ const NewProductForm = () => {
                 <button
                   type="button"
                   onClick={() => {
-                    const imgPath = url.split("localhost:3000")[1];
                     const imageIndex = formData.images.indexOf(imgPath);
                     if (imageIndex !== -1) {
                       const images = formData.images;

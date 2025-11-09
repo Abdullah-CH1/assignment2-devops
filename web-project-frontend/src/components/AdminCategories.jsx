@@ -30,7 +30,7 @@ const AdminCategories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await fetch("http://localhost:3000/api/categories");
+        const response = await fetch("/api/categories");
         if (!response.ok) {
           const data = await response.json();
           throw new Error(`${data.message}`);
@@ -71,7 +71,7 @@ const AdminCategories = () => {
   const createCategory = async () => {
     try {
       setSubmitting(true);
-      const response = await fetch("http://localhost:3000/api/categories", {
+      const response = await fetch("/api/categories", {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -105,7 +105,7 @@ const AdminCategories = () => {
     try {
       setSubmitting(true);
       const response = await fetch(
-        "http://localhost:3000/api/categories/" + formData._id,
+        "/api/categories/" + formData._id,
         {
           method: "PUT",
           body: JSON.stringify(formData),
@@ -142,7 +142,7 @@ const AdminCategories = () => {
     setIsEditing(true);
     try {
       const response = await fetch(
-        "http://localhost:3000/api/categories/" + id
+        "/api/categories/" + id
       );
       if (!response.ok) {
         const data = await response.json();
@@ -161,7 +161,7 @@ const AdminCategories = () => {
   const handleCategoryDelete = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/categories/" + categoryToDeleteId,
+        "/api/categories/" + categoryToDeleteId,
         {
           method: "DELETE",
           headers: {
